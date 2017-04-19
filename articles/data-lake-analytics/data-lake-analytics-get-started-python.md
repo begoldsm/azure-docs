@@ -16,8 +16,6 @@ ms.date: 11/15/2016
 ms.author: jgao
 
 ---
-
-
 # Tutorial: get started with Azure Data Lake Analytics using Python
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
@@ -27,6 +25,7 @@ In this tutorial, you develop a job that reads a tab separated values (TSV) file
 
 ##Prerequisites
 
+
 Before you begin this tutorial, you must have the following items:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -35,6 +34,7 @@ Before you begin this tutorial, you must have the following items:
 
 
 ## Install Azure Python SDK
+
 
 To work with Data Lake Store using Python, you need to install three modules.
 
@@ -70,7 +70,8 @@ The azure-datalake-store module includes the Azure Data Lake Store filesystem op
 		from azure.datalake.store import core, lib, multithread
 
 		## Required for Azure Data Lake Analytics account management
-		from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeAnalyticsAccountProperties, DataLakeStoreAccountInfo
+		from azure.mgmt.datalake.analytics.account import DataLakeAnalyticsAccountManagementClient
+		from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInfo
 
 		## Required for Azure Data Lake Analytics job management
 		from azure.mgmt.datalake.analytics.job import DataLakeAnalyticsJobManagementClient
@@ -94,6 +95,7 @@ Use this method to authenticate with Azure AD for account management operations 
 
 	user = input('Enter the user to authenticate with that has permission to subscription: ')
 	password = getpass.getpass()
+
 
 	credentials = UserPassCredentials(user, password)
 
